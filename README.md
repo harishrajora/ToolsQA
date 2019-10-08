@@ -1,2 +1,2 @@
 # ToolsQA
-ToolsQA Repository for Git Tutorial
+ToolsQA Repository for Git Course.

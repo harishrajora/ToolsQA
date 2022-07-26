@@ -5,12 +5,29 @@
 
 <body>
 <center><h1>I am making some changes to this web page</h1></center>
-<h3>Adding some todos</h3>
-<ul>
-    <li>Reading blog post</li>
-    <li>Writing code</li>
-    <li>Server implementation</li>
-</ul>
+<h3>Guess game</h3>
+<p>I am thinking anumber between 1 to 100, Guess the number !</p>
+<form>
+    <label for="gnumber">Guess the Number</label>
+    <input type="number" id="gnumber">
+    <input type="submit" name="" id="submit-guess" value="Check Now">
+</form>
+<h3 id="result"></h3>
+<p>Number was <span id="random-number"></span></p>
+<script>
+    const randomNumber = Math.floor(Math.random() * 100) + 1;
+    const span = document.getElementById('random-number')
+    const submitInput = document.getElementById('submit-guess')
+    const guessInput = document.getElementById('gnumber')
+    const result = document.getElementById('result')
+    const guessNumber = +guessInput.value
+    const checkNumber = (e)=>{
+        e.preventDefault()
+        console.log(guessNumber)
+        span.innerHTML = `${randomNumber}`
+    }
+    submitInput.addEventListener('click',checkNumber)
+</script>
 </body>
 
 </html>

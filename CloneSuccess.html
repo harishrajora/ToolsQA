@@ -18,12 +18,20 @@
     const randomNumber = Math.floor(Math.random() * 100) + 1;
     const span = document.getElementById('random-number')
     const submitInput = document.getElementById('submit-guess')
-    const guessInput = document.getElementById('gnumber')
+    
     const result = document.getElementById('result')
-    const guessNumber = +guessInput.value
+    
     const checkNumber = (e)=>{
         e.preventDefault()
-        console.log(guessNumber)
+        const guessNumber = +document.getElementById('gnumber').value
+        if(guessNumber === randomNumber){
+            result.innerHTML = 'Great !, You win'
+        }else if(guessNumber > randomNumber){
+            result.innerHTML = 'Your guess is too high'
+
+        }else if(guessNumber < randomNumber){
+            result.innerHTML = 'Your guess is too low'
+        }
         span.innerHTML = `${randomNumber}`
     }
     submitInput.addEventListener('click',checkNumber)

@@ -5,6 +5,37 @@
 
 <body>
 <center><h1>I am making some changes to this web page</h1></center>
+<h3>Guess game</h3>
+<p>I am thinking anumber between 1 to 100, Guess the number !</p>
+<form>
+    <label for="gnumber">Guess the Number</label>
+    <input type="number" id="gnumber">
+    <input type="submit" name="" id="submit-guess" value="Check Now">
+</form>
+<h3 id="result"></h3>
+<p>Number was <span id="random-number"></span></p>
+<script>
+    const randomNumber = Math.floor(Math.random() * 100) + 1;
+    const span = document.getElementById('random-number')
+    const submitInput = document.getElementById('submit-guess')
+    
+    const result = document.getElementById('result')
+    
+    const checkNumber = (e)=>{
+        e.preventDefault()
+        const guessNumber = +document.getElementById('gnumber').value
+        if(guessNumber === randomNumber){
+            result.innerHTML = 'Great !, You win'
+        }else if(guessNumber > randomNumber){
+            result.innerHTML = 'Your guess is too high'
+
+        }else if(guessNumber < randomNumber){
+            result.innerHTML = 'Your guess is too low'
+        }
+        span.innerHTML = `${randomNumber}`
+    }
+    submitInput.addEventListener('click',checkNumber)
+</script>
 </body>
 
 </html>
